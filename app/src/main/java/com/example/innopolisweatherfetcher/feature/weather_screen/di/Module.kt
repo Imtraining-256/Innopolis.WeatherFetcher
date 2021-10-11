@@ -6,7 +6,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "api.openweathermap.org/data/2.5/weather"
+const val BASE_URL = "api.openweathermap.org/data/2.5"
 
 val appModule = module {
     single {
