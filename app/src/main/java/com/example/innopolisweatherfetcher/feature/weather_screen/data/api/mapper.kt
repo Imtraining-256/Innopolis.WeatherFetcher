@@ -5,6 +5,7 @@ import com.example.innopolisweatherfetcher.feature.weather_screen.domain.model.W
 
 fun WeatherModel.toDomain(): WeatherDomainModel {
     return WeatherDomainModel(
-        this.main.temp
+        this.main.temp,
+        this.main.humidity
     )
 }
