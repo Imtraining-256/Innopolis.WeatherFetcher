@@ -8,5 +8,7 @@ data class WeatherMainModel(
     @SerializedName("temp_min")
     val tempMin: String,
     @SerializedName("temp_max")
-    val tempMax: String
+    val tempMax: String,
+    @SerializedName("humidity")
+    val humidity: String
 )
