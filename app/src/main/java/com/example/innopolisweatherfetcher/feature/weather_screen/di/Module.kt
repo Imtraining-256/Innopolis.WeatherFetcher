@@ -6,6 +6,7 @@ import com.example.innopolisweatherfetcher.feature.weather_screen.data.api.Weath
 import com.example.innopolisweatherfetcher.feature.weather_screen.data.api.WeatherRepositoryImpl
 import com.example.innopolisweatherfetcher.feature.weather_screen.domain.WeatherInteractor
 import com.example.innopolisweatherfetcher.feature.weather_screen.ui.WeatherScreenViewModel
+import com.example.innopolisweatherfetcher.feature.wind_screen.ui.WindScreenViewModel
 import okhttp3.OkHttpClient
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -46,5 +47,9 @@ val appModule = module {
 
     viewModel {
         WeatherScreenViewModel(get<WeatherInteractor>())
+    }
+
+    viewModel {
+        WindScreenViewModel(get<WeatherInteractor>())
     }
 }

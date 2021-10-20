@@ -1,5 +1,6 @@
 package com.example.innopolisweatherfetcher.feature.weather_screen.data.api
 
+import com.example.innopolisweatherfetcher.feature.weather_screen.data.toDomain
 import com.example.innopolisweatherfetcher.feature.weather_screen.domain.model.WeatherDomainModel
 
 class WeatherRepositoryImpl(private val source: WeatherRemoteSource) : WeatherRepository {
