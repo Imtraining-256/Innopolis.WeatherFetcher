@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.innopolisweatherfetcher.R
-import com.example.innopolisweatherfetcher.feature.weather_screen.domain.model.WeatherDomainModel
 import com.example.innopolisweatherfetcher.feature.wind_screen.ui.WindScreenActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -18,9 +16,7 @@ class WeatherScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
 
-        weatherViewModel.liveData.observe(this, Observer(::render))
-
-        weatherViewModel.requestWeather()
+        weatherViewModel.viewState.observe(this, ::render)
 
         val windButton = findViewById<Button>(R.id.windButton)
         windButton.setOnClickListener {
@@ -28,13 +24,13 @@ class WeatherScreenActivity : AppCompatActivity() {
         }
     }
 
-    private fun render(state: WeatherDomainModel) {
+    private fun render(state: ViewState) {
         findViewById<TextView>(R.id.tvTemperature).let {
-            it.text = state.temperature
+            it.text = state.weatherDomainModel.temperature
         }
 
         findViewById<TextView>(R.id.tvHumidity).let {
-            it.text = state.humidity
+            it.text = state.weatherDomainModel.humidity
         }
     }
 }
